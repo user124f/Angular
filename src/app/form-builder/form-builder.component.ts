@@ -4,11 +4,12 @@ import { FormGroup, FormControl, FormControlName} from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
-  templateUrl: './create-employee.component.html',
-  styleUrls: ['./create-employee.component.css']
+  templateUrl: './form-builder.component.html',
+  styleUrls: ['./form-builder.component.css']
 })
-export class CreateEmployeeComponent implements OnInit{
+export class FormBuilderComponent implements OnInit{
   employeeForm!: FormGroup;
+formBuilder: any;
   
     constructor(private http: HttpClient) {}
 

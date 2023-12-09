@@ -1,7 +1,7 @@
-<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+<form [formGroup]="formBuilder" (ngSubmit)="onSubmit()" class="form-horizontal">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Create Employee</h3>
+            <h3 class="panel-title">Form Builder</h3>
         </div>
        <div class="panel-body">
         <div class="form-group">
@@ -62,16 +62,16 @@
     </tr>
     <tr>
       <td style="padding: 10px">
-        touched : {{ employeeForm.touched }}
-        <br/> dirty : {{ employeeForm.dirty }}
-        <br/> valid : {{ employeeForm.valid }}
-        <br/> Form Values : {{employeeForm.value | json}}
+        touched : {{ formBuilder.touched }}
+        <br/> dirty : {{ formBuilder.dirty }}
+        <br/> valid : {{ formBuilder.valid }}
+        <br/> Form Values : {{formBuilder.value | json}}
       </td>
       <td style="padding: 10px">
-        touched : {{ employeeForm.get('fullName')?.touched }}
-        <br/> dirty : {{ employeeForm.get('fullName')?.dirty }}
-        <br/> valid : {{ employeeForm.get('fullName')?.valid }}
-        <br/> FullName Value : {{employeeForm.get('fullName')?.value}}
+        touched : {{ formBuilder.get('fullName')?.touched }}
+        <br/> dirty : {{ formBuilder.get('fullName')?.dirty }}
+        <br/> valid : {{ formBuilder.get('fullName')?.valid }}
+        <br/> FullName Value : {{formBuilder.get('fullName')?.value}}
       </td>
     </tr>
   </table>

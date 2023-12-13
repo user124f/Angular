@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormControlName} from '@angular/forms';
+import { FormGroup, FormControl, FormControlName, Validator} from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',

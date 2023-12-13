@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormControlName} from '@angular/forms';
+import { FormGroup, FormControl, FormControlName,FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
@@ -9,30 +9,33 @@ import { FormGroup, FormControl, FormControlName} from '@angular/forms';
 })
 export class FormBuilderComponent implements OnInit{
   employeeForm!: FormGroup;
-formBuilder: any;
-  
-    constructor(private http: HttpClient) {}
+skillName: any;
+
+ constructor(private fb: FormBuilder) {}
+
 
   ngOnInit() {
-    this.employeeForm = new FormGroup({
-      fullName: new FormControl(),
-      email: new FormControl(),
-      skills: new FormGroup({
-        skillName: new FormControl(),
-        experienceInYears: new FormControl(),
-        proficiency: new FormControl()
-      })
-    });
-  }
+    this.employeeForm = this.fb.group({
+     fullName:['',[Validators.required,Validators.minLength(2),Validators.maxLength(10)]],
+     email:['',[Validators.required,Validators.email]],
+    skills: this.fb.group({
+      skillName:['',Validators.required,Validators.minLength(1)],
+      experienceInYears:['',Validators.required],
+      proficiency:['']
+     
+    }) 
+
+    })
+  } 
 
   onLoadDataClick(): void {
     this.employeeForm.setValue({
-     fullName: 'Rudraksh',
-     email: 'rudraksh0322@gmail.com',
+     fullName: 'Atharav',
+     email: 'aatharv123@gmail.com',
      skills: {
-      skillName: 'Angular',
-      experienceInYears: '1',
-      proficiency: 'beginner'
+      skillName: 'Dance',
+      experienceInYears: '2',
+      proficiency: 'intermidiate'
      }
 
     })
